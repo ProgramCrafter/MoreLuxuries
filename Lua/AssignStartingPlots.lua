@@ -399,7 +399,7 @@ function AssignStartingPlots.Create()
 		dye_ID, spices_ID, sugar_ID, cotton_ID, wine_ID, incense_ID,
 		gold_ID, silver_ID, gems_ID, marble_ID,
 		-- Expansion luxuries
-		copper_ID, salt_ID, citrus_ID, truffles_ID, crab_ID, cocoa_ID,
+		-- copper_ID, salt_ID, citrus_ID, truffles_ID, crab_ID, cocoa_ID,
 		-- Mod luxuries
 		coffee_ID, tea_ID, tobacco_ID, amber_ID, jade_ID, olives_ID, perfume_ID, coral_ID, lapis_ID, -- MOD.Barathor: New
 		
@@ -551,6 +551,7 @@ function AssignStartingPlots:__Init()
 		table.insert(self.resources, resource_data);
 		local resourceID = resource_data.ID;
 		local resourceType = resource_data.Type;
+    print(resourceID, resourceType)
 		-- Set up Bonus IDs
 		if resourceType == "RESOURCE_WHEAT" then
 			self.wheat_ID = resourceID;
@@ -613,18 +614,18 @@ function AssignStartingPlots:__Init()
 		elseif resourceType == "RESOURCE_MARBLE" then
 			self.marble_ID = resourceID;
 		-- Set up Expansion Pack Luxury IDs
-		elseif resourceType == "RESOURCE_COPPER" then
-			self.copper_ID = resourceID;
-		elseif resourceType == "RESOURCE_SALT" then
-			self.salt_ID = resourceID;
-		elseif resourceType == "RESOURCE_CITRUS" then
-			self.citrus_ID = resourceID;
-		elseif resourceType == "RESOURCE_TRUFFLES" then
-			self.truffles_ID = resourceID;
-		elseif resourceType == "RESOURCE_CRAB" then
-			self.crab_ID = resourceID;
-		elseif resourceType == "RESOURCE_COCOA" then
-			self.cocoa_ID = resourceID;
+		-- elseif resourceType == "RESOURCE_COPPER" then
+		-- 	self.copper_ID = resourceID;
+		-- elseif resourceType == "RESOURCE_SALT" then
+		-- 	self.salt_ID = resourceID;
+		-- elseif resourceType == "RESOURCE_CITRUS" then
+		-- 	self.citrus_ID = resourceID;
+		-- elseif resourceType == "RESOURCE_TRUFFLES" then
+		-- 	self.truffles_ID = resourceID;
+		-- elseif resourceType == "RESOURCE_CRAB" then
+		-- 	self.crab_ID = resourceID;
+		-- elseif resourceType == "RESOURCE_COCOA" then
+		-- 	self.cocoa_ID = resourceID;
 		-- Mod Luxury IDs
 		elseif resourceType == "RESOURCE_COFFEE" then	-- MOD.Barathor: New
 			self.coffee_ID = resourceID;
@@ -661,173 +662,173 @@ function AssignStartingPlots:__InitLuxuryWeights()
 	self.luxury_region_weights[1] = {			-- Tundra
 	{self.fur_ID,		40},
 	{self.silver_ID,	40},
-	{self.amber_ID,		40},
-	{self.salt_ID,		40},
+	{self.amber_ID,		40}, --[[nil]]
+	--{self.salt_ID,		40},
 	{self.gold_ID,		10},
-	{self.copper_ID,	10},
+	--{self.copper_ID,	10},
 	{self.gems_ID,		10},
-	{self.jade_ID,		10},
-	{self.lapis_ID,		10},
+	{self.jade_ID,		10}, --[[nil]]
+	{self.lapis_ID,		10}, --[[nil]]
 	{self.whale_ID,		10},
-	{self.crab_ID,		10},
+	--{self.crab_ID,		10},
 	{self.pearls_ID,	10},
-	{self.coral_ID,		10},	};
+	{self.coral_ID,		10}, --[[nil]] };
 
 	self.luxury_region_weights[2] = {			-- Jungle
-	{self.citrus_ID,	40},
-	{self.cocoa_ID,		40},
+	--{self.citrus_ID,	40},
+	--{self.cocoa_ID,		40},
 	{self.spices_ID,	40},
 	{self.sugar_ID,		40},
-	{self.truffles_ID,	10},
+	--{self.truffles_ID,	10},
 	{self.silk_ID,		10},
 	{self.dye_ID,		10},
 	{self.fur_ID,		10},
 	{self.whale_ID,		10},
-	{self.crab_ID,		10},
+	--{self.crab_ID,		10},
 	{self.pearls_ID,	10},
-	{self.coral_ID,		10},	};
+	{self.coral_ID,		10}, --[[nil]] };
 	
 	self.luxury_region_weights[3] = {			-- Forest
-	{self.truffles_ID,	40},
+	--{self.truffles_ID,	40},
 	{self.silk_ID,		40},
 	{self.dye_ID,		40},
 	{self.fur_ID,		40},
-	{self.citrus_ID,	10},
-	{self.cocoa_ID,		10},
+	--{self.citrus_ID,	10},
+	--{self.cocoa_ID,		10},
 	{self.spices_ID,	10},
 	{self.sugar_ID,		10},
 	{self.whale_ID,		10},
-	{self.crab_ID,		10},
+	--{self.crab_ID,		10},
 	{self.pearls_ID,	10},
-	{self.coral_ID,		10},	};
+	{self.coral_ID,		10}, --[[nil]] };
 	
 	self.luxury_region_weights[4] = {			-- Desert
 	{self.incense_ID,	40},
-	{self.salt_ID,		40},
+	--{self.salt_ID,		40},
 	{self.gold_ID,		40},
-	{self.lapis_ID,		40},
-	{self.copper_ID,	10},
+	{self.lapis_ID,		40}, --[[nil]]
+	--{self.copper_ID,	10},
 	{self.silver_ID,	10},
-	{self.amber_ID,		10},
+	{self.amber_ID,		10}, --[[nil]]
 	{self.gems_ID,		10},
-	{self.jade_ID,		10},
+	{self.jade_ID,		10}, --[[nil]]
 	{self.whale_ID,		10},
-	{self.crab_ID,		10},
+	--{self.crab_ID,		10},
 	{self.pearls_ID,	10},
-	{self.coral_ID,		10},	};
+	{self.coral_ID,		10}, --[[nil]] };
 	
 	self.luxury_region_weights[5] = {			-- Hills
 	{self.gold_ID,		30},
 	{self.silver_ID,	30},
-	{self.copper_ID,	30},
+	--{self.copper_ID,	30},
 	{self.gems_ID,		30},
-	{self.salt_ID,		30},
-	{self.jade_ID,		30},
-	{self.amber_ID,		30},
-	{self.lapis_ID,		30},
+	--{self.salt_ID,		30},
+	{self.jade_ID,		30}, --[[nil]]
+	{self.amber_ID,		30}, --[[nil]]
+	{self.lapis_ID,		30}, --[[nil]]
 	{self.whale_ID,		10},
-	{self.crab_ID,		10},
+	--{self.crab_ID,		10},
 	{self.pearls_ID,	10},
-	{self.coral_ID,		10},	};
+	{self.coral_ID,		10}, --[[nil]] };
 
 	
 	self.luxury_region_weights[6] = {			-- Plains
 	{self.incense_ID,	40},
 	{self.ivory_ID,		40},
 	{self.wine_ID,		40},
-	{self.olives_ID,	40},
-	{self.coffee_ID,	40},
-	{self.tobacco_ID,	10},
-	{self.tea_ID,		10},
-	{self.perfume_ID,	10},
+	{self.olives_ID,	40}, --[[nil]]
+	{self.coffee_ID,	40}, --[[nil]]
+	{self.tobacco_ID,	10}, --[[nil]]
+	{self.tea_ID,		10},   --[[nil]]
+	{self.perfume_ID,	10}, --[[nil]]
 	{self.cotton_ID,	10},
 	{self.whale_ID,		10},
-	{self.crab_ID,		10},
+	--{self.crab_ID,		10},
 	{self.pearls_ID,	10},
-	{self.coral_ID,		10},	};
+	{self.coral_ID,		10}, --[[nil]] };
 	
 	self.luxury_region_weights[7] = {			-- Grass
-	{self.tobacco_ID,	40},
-	{self.tea_ID,		40},
-	{self.perfume_ID,	40},
+	{self.tobacco_ID,	40}, --[[nil]]
+	{self.tea_ID,		40},   --[[nil]]
+	{self.perfume_ID,	40}, --[[nil]]
 	{self.cotton_ID,	40},
 	{self.ivory_ID,		10},
 	{self.wine_ID,		10},
-	{self.olives_ID,	10},
-	{self.coffee_ID,	10},
+	{self.olives_ID,	10}, --[[nil]]
+	{self.coffee_ID,	10}, --[[nil]]
 	{self.whale_ID,		10},
-	{self.crab_ID,		10},
+	--{self.crab_ID,		10},
 	{self.pearls_ID,	10},
-	{self.coral_ID,		10},	};
+	{self.coral_ID,		10}, --[[nil]] };
 	
 	self.luxury_region_weights[8] = {			-- Hybrid
 	{self.gold_ID,		30},
 	{self.silver_ID,	30},					-- MOD.Barathor: Favor very flexible resources, like resources that are mined or in the water.
-	{self.copper_ID,	30},
+	--{self.copper_ID,	30},
 	{self.gems_ID,		30},
-	{self.salt_ID,		30},
-	{self.jade_ID,		30},
-	{self.amber_ID,		30},
-	{self.lapis_ID,		30},
-	{self.coffee_ID,	05},
-	{self.tobacco_ID,	05},
-	{self.tea_ID,		05},
-	{self.perfume_ID,	05},
+	--{self.salt_ID,		30},
+	{self.jade_ID,		30}, --[[nil]]
+	{self.amber_ID,		30}, --[[nil]]
+	{self.lapis_ID,		30}, --[[nil]]
+	{self.coffee_ID,	05}, --[[nil]]
+	{self.tobacco_ID,	05}, --[[nil]]
+	{self.tea_ID,		05},   --[[nil]]
+	{self.perfume_ID,	05}, --[[nil]]
 	{self.cotton_ID,	05},
 	{self.ivory_ID,		05},
 	{self.wine_ID,		05},
-	{self.olives_ID,	05},
+	{self.olives_ID,	05}, --[[nil]]
 	{self.incense_ID,	05},
-	{self.truffles_ID,	05},
+	--{self.truffles_ID,	05},
 	{self.silk_ID,		05},
 	{self.dye_ID,		05},
 	{self.fur_ID,		05},
-	{self.citrus_ID,	05},
-	{self.cocoa_ID,		05},
+	--{self.citrus_ID,	05},
+	--{self.cocoa_ID,		05},
 	{self.spices_ID,	05},
 	{self.sugar_ID,		05},
 	{self.whale_ID,		20},
-	{self.crab_ID,		20},
+	--{self.crab_ID,		20},
 	{self.pearls_ID,	20},
-	{self.coral_ID,		20},	};
+	{self.coral_ID,		20}, --[[nil]] };
 	
 	self.luxury_fallback_weights = {			-- Random / Fallback
 	{self.gold_ID,		10},
 	{self.silver_ID,	10},					-- MOD.Barathor: Favor water resources since they work great as randoms and make the coasts more interesting. 
-	{self.copper_ID,	10},					--				 Also, slightly favor mined resources for their flexibility.
+	--{self.copper_ID,	10},					--				 Also, slightly favor mined resources for their flexibility.
 	{self.gems_ID,		10},
-	{self.salt_ID,		10},
-	{self.jade_ID,		10},
-	{self.amber_ID,		10},
-	{self.lapis_ID,		10},
-	{self.coffee_ID,	05},
-	{self.tobacco_ID,	05},
-	{self.tea_ID,		05},
-	{self.perfume_ID,	05},
+	--{self.salt_ID,		10},
+	{self.jade_ID,		10}, --[[nil]]
+	{self.amber_ID,		10}, --[[nil]]
+	{self.lapis_ID,		10}, --[[nil]]
+	{self.coffee_ID,	05}, --[[nil]]
+	{self.tobacco_ID,	05}, --[[nil]]
+	{self.tea_ID,		05},   --[[nil]]
+	{self.perfume_ID,	05}, --[[nil]]
 	{self.cotton_ID,	05},
 	{self.ivory_ID,		05},
 	{self.wine_ID,		05},
-	{self.olives_ID,	05},
+	{self.olives_ID,	05}, --[[nil]]
 	{self.incense_ID,	05},
-	{self.truffles_ID,	05},
+	--{self.truffles_ID,	05},
 	{self.silk_ID,		05},
 	{self.dye_ID,		05},
 	{self.fur_ID,		05},
-	{self.citrus_ID,	05},
-	{self.cocoa_ID,		05},
+	--{self.citrus_ID,	05},
+	--{self.cocoa_ID,		05},
 	{self.spices_ID,	05},
 	{self.sugar_ID,		05},
 	{self.whale_ID,		30},
-	{self.crab_ID,		30},
+	--{self.crab_ID,		30},
 	{self.pearls_ID,	30},
-	{self.coral_ID,		30},	};
+	{self.coral_ID,		30}, --[[nil]] };
 
 	self.luxury_city_state_weights = {			-- City States	
 	{self.gold_ID,		10},
 	{self.silver_ID,	10},					-- MOD.Barathor: Slightly favor water resources since they're flexible and most city-states are coastal.
-	{self.copper_ID,	10},					--				 Also, slightly favor mined resources for their flexibility.
+	--{self.copper_ID,	10},					--				 Also, slightly favor mined resources for their flexibility.
 	{self.gems_ID,		10},
-	{self.salt_ID,		10},
+	--{self.salt_ID,		10},
 	{self.jade_ID,		10},
 	{self.amber_ID,		10},
 	{self.lapis_ID,		10},
@@ -840,16 +841,16 @@ function AssignStartingPlots:__InitLuxuryWeights()
 	{self.wine_ID,		05},
 	{self.olives_ID,	05},
 	{self.incense_ID,	05},
-	{self.truffles_ID,	05},
+	--{self.truffles_ID,	05},
 	{self.silk_ID,		05},
 	{self.dye_ID,		05},
 	{self.fur_ID,		05},
-	{self.citrus_ID,	05},
-	{self.cocoa_ID,		05},
+	--{self.citrus_ID,	05},
+	--{self.cocoa_ID,		05},
 	{self.spices_ID,	05},
 	{self.sugar_ID,		05},
 	{self.whale_ID,		10},
-	{self.crab_ID,		10},
+	--{self.crab_ID,		10},
 	{self.pearls_ID,	10},
 	{self.coral_ID,		10},	};
 	-- MOD.Barathor: End
@@ -4892,7 +4893,7 @@ function AssignStartingPlots:BalanceAndAssign()
 			iNumCoastalCivs = iNumCoastalCivs + 1;
 			iNumCoastalCivsRemaining = iNumCoastalCivsRemaining + 1;
 			table.insert(civs_needing_coastal_start, playerNum);
-			local bPlaceFirst = CivNeedsPlaceFirstCoastalStart(civType);
+			--local bPlaceFirst = CivNeedsPlaceFirstCoastalStart(civType);
 			if bPlaceFirst then
 				--print("- - - - - - - needs to Place First!"); print("-");
 				table.insert(civs_priority_coastal_start, playerNum);
@@ -6295,6 +6296,8 @@ function AssignStartingPlots:AttemptToPlaceNaturalWonder(wonder_number, row_numb
 end
 ------------------------------------------------------------------------------
 function AssignStartingPlots:PlaceNaturalWonders()
+  do return end -- @pcrafter - 19-07-2021 - patch to make it work without Brave New World DLC
+  
 	local NW_eligibility_order = self:GenerateNaturalWondersCandidatePlotLists()
 	local iNumNWCandidates = table.maxn(NW_eligibility_order);
 	if iNumNWCandidates == 0 then
@@ -8170,7 +8173,25 @@ function AssignStartingPlots:SortRegionsByType()
 	self:IdentifyRegionsOfThisType(0) -- If any Undefined Regions, put them at the bottom of the list.
 end
 ------------------------------------------------------------------------------
+local lrw_printed = false
 function AssignStartingPlots:AssignLuxuryToRegion(region_number)
+  -- @pcrafter - 20-07-2021 - debug patch
+  print('AssignStartingPlots:AssignLuxuryToRegion working')
+  if not lrw_printed then
+    for region_type = 1, 8 do
+      print('Region ' .. tostring(region_type) .. ' luxuries:')
+      for i, options in ipairs(self.luxury_region_weights[region_type]) do
+        print('  ' .. tostring(i) .. ' -> ' .. tostring(options[1]) .. ',' .. tostring(options[2]))
+      end
+    end
+    print('Fallback luxuries:')
+    for i, options in ipairs(self.luxury_fallback_weights) do
+      print('  ' .. tostring(i) .. ' -> ' .. tostring(options[1]) .. ',' .. tostring(options[2]))
+    end
+    
+    lrw_printed = true
+  end
+  
 	-- Assigns a luxury type to an individual region.
 	local region_type = self.regionTypes[region_number];
 	local luxury_candidates;
@@ -8188,11 +8209,15 @@ function AssignStartingPlots:AssignLuxuryToRegion(region_number)
 	
 	for index, resource_options in ipairs(luxury_candidates) do
 		local res_ID = resource_options[1];
+    -- @pcrafter - 20-07-2021 - dropping resources with id==nil
+    print('Candidate for placement: ' .. tostring(res_ID) .. ', split cap ' .. tostring(split_cap))
+    if not res_ID then goto luxury_nil end
+      
 		if self.luxury_assignment_count[res_ID] < split_cap then -- This type still eligible.
 			local test = TestMembership(self.resourceIDs_assigned_to_regions, res_ID)
 			if self.iNumTypesAssignedToRegions < self.iNumMaxAllowedForRegions or test == true then -- Not a new type that would exceed number of allowed types, so continue.
 				-- Water-based resources need to run a series of permission checks: coastal start in region, not a disallowed regions type, enough water, etc.
-				if res_ID == self.whale_ID or res_ID == self.pearls_ID or res_ID == self.crab_ID or res_ID == self.coral_ID then
+				if res_ID == self.whale_ID or res_ID == self.pearls_ID or --[[res_ID == self.crab_ID or]] res_ID == self.coral_ID then
 					--MOD.Barathor: Removed unnecessary "regional" restrictions between whales/jungle, pearls/tundra, and crab/desert to make assignments more flexible.
 					if self.startLocationConditions[region_number][1] == true then -- This region's start is along an ocean, so water-based luxuries are allowed.
 						-- MOD.Barathor: Start
@@ -8217,16 +8242,22 @@ function AssignStartingPlots:AssignLuxuryToRegion(region_number)
 				end
 			end
 		end
+    
+    ::luxury_nil::
 	end
 	
 	-- If options list is empty, pick from fallback options. First try to respect water-resources not being assigned to regions without coastal starts.
 	if iNumAvailableTypes == 0 then
 		for index, resource_options in ipairs(self.luxury_fallback_weights) do
 			local res_ID = resource_options[1];
+      print('Fallback candidate for placement: ' .. tostring(res_ID) .. ', split cap 3')
+      if not res_ID then goto luxury_nil end
+      
 			if self.luxury_assignment_count[res_ID] < 3 then -- This type still eligible.
 				local test = TestMembership(self.resourceIDs_assigned_to_regions, res_ID)
 				if self.iNumTypesAssignedToRegions < self.iNumMaxAllowedForRegions or test == true then -- Won't exceed allowed types.
-					if res_ID == self.whale_ID or res_ID == self.pearls_ID or res_ID == self.crab_ID or res_ID == self.coral_ID then		-- MOD.Barathor: Fixed -- added missing crab restriction for regional placement
+					if res_ID == self.whale_ID or res_ID == self.pearls_ID or --[[res_ID == self.crab_ID or]] res_ID == self.coral_ID then		-- MOD.Barathor: Fixed -- added missing crab restriction for regional placement
+          -- @pcrafter - 20-07-2021 - removed that restriction due to lack of crabs
 						--MOD.Barathor: Removed unnecessary "regional" restrictions between whales/jungle, pearls/tundra, and crab/desert to make assignments more flexible.
 						if self.startLocationConditions[region_number][1] == true then -- This region's start is along an ocean, so water-based luxuries are allowed.
 							-- MOD.Barathor: Start
@@ -8250,6 +8281,8 @@ function AssignStartingPlots:AssignLuxuryToRegion(region_number)
 					end
 				end
 			end
+      
+      ::luxury_nil::
 		end
 	end
 
@@ -8261,6 +8294,9 @@ function AssignStartingPlots:AssignLuxuryToRegion(region_number)
 		--print("If you are modifying luxury types or number of regions allowed to get the same type, check to make sure your changes haven't violated the math so each region can have a legal assignment.");
 		for index, resource_options in ipairs(self.luxury_fallback_weights) do
 			local res_ID = resource_options[1];
+      print('Forced candidate for placement: ' .. tostring(res_ID) .. ', split cap 3')
+      if not res_ID then goto luxury_nil end
+      
 			if self.luxury_assignment_count[res_ID] < 3 then -- This type still eligible.
 				local test = TestMembership(self.resourceIDs_assigned_to_regions, res_ID)
 				if self.iNumTypesAssignedToRegions < self.iNumMaxAllowedForRegions or test == true then -- Won't exceed allowed types.
@@ -8270,6 +8306,8 @@ function AssignStartingPlots:AssignLuxuryToRegion(region_number)
 					iNumAvailableTypes = iNumAvailableTypes + 1;
 				end
 			end
+      
+      ::luxury_nil::
 		end
 	end
 	if iNumAvailableTypes == 0 then -- Bad mojo!
@@ -8644,7 +8682,7 @@ function AssignStartingPlots:GetListOfAllowableLuxuriesAtCitySite(x, y, radius)
 									if featureType ~= self.feature_atoll and featureType ~= FeatureTypes.FEATURE_ICE then
 										allowed_luxuries[self.whale_ID] = true
 										allowed_luxuries[self.pearls_ID] = true
-										allowed_luxuries[self.crab_ID] = true
+										--allowed_luxuries[self.crab_ID] = true
 										allowed_luxuries[self.coral_ID] = true
 									end
 								end
@@ -8657,9 +8695,9 @@ function AssignStartingPlots:GetListOfAllowableLuxuriesAtCitySite(x, y, radius)
 								allowed_luxuries[self.marble_ID] = true
 								allowed_luxuries[self.gold_ID] = true
 								allowed_luxuries[self.silver_ID] = true
-								allowed_luxuries[self.copper_ID] = true	
+								--allowed_luxuries[self.copper_ID] = true	
 								allowed_luxuries[self.gems_ID] = true
-								allowed_luxuries[self.salt_ID] = true
+								--allowed_luxuries[self.salt_ID] = true
 								allowed_luxuries[self.jade_ID] = true
 								allowed_luxuries[self.amber_ID] = true
 								allowed_luxuries[self.lapis_ID] = true
@@ -8670,9 +8708,9 @@ function AssignStartingPlots:GetListOfAllowableLuxuriesAtCitySite(x, y, radius)
 								allowed_luxuries[self.marble_ID] = true
 								allowed_luxuries[self.gold_ID] = true
 								allowed_luxuries[self.silver_ID] = true
-								allowed_luxuries[self.copper_ID] = true	
+								--allowed_luxuries[self.copper_ID] = true	
 								allowed_luxuries[self.gems_ID] = true
-								allowed_luxuries[self.salt_ID] = true
+								--allowed_luxuries[self.salt_ID] = true
 								allowed_luxuries[self.jade_ID] = true
 								allowed_luxuries[self.amber_ID] = true
 								allowed_luxuries[self.lapis_ID] = true
@@ -8683,9 +8721,9 @@ function AssignStartingPlots:GetListOfAllowableLuxuriesAtCitySite(x, y, radius)
 								allowed_luxuries[self.marble_ID] = true
 								allowed_luxuries[self.gold_ID] = true
 								allowed_luxuries[self.silver_ID] = true
-								allowed_luxuries[self.copper_ID] = true	
+								--allowed_luxuries[self.copper_ID] = true	
 								allowed_luxuries[self.gems_ID] = true
-								allowed_luxuries[self.salt_ID] = true
+								--allowed_luxuries[self.salt_ID] = true
 								allowed_luxuries[self.jade_ID] = true
 								allowed_luxuries[self.amber_ID] = true
 								allowed_luxuries[self.lapis_ID] = true
@@ -8693,9 +8731,9 @@ function AssignStartingPlots:GetListOfAllowableLuxuriesAtCitySite(x, y, radius)
 								allowed_luxuries[self.spices_ID] = true
 								allowed_luxuries[self.silk_ID] = true
 								allowed_luxuries[self.sugar_ID] = true
-								allowed_luxuries[self.citrus_ID] = true
-								allowed_luxuries[self.truffles_ID] = true
-								allowed_luxuries[self.cocoa_ID] = true
+								--allowed_luxuries[self.citrus_ID] = true
+								--allowed_luxuries[self.truffles_ID] = true
+								--allowed_luxuries[self.cocoa_ID] = true
 								allowed_luxuries[self.fur_ID] = true
 								allowed_luxuries[self.dye_ID] = true
 								--
@@ -8712,9 +8750,9 @@ function AssignStartingPlots:GetListOfAllowableLuxuriesAtCitySite(x, y, radius)
 								allowed_luxuries[self.marble_ID] = true
 								allowed_luxuries[self.gold_ID] = true
 								allowed_luxuries[self.silver_ID] = true
-								allowed_luxuries[self.copper_ID] = true	
+								--allowed_luxuries[self.copper_ID] = true	
 								allowed_luxuries[self.gems_ID] = true
-								allowed_luxuries[self.salt_ID] = true
+								--allowed_luxuries[self.salt_ID] = true
 								allowed_luxuries[self.jade_ID] = true
 								allowed_luxuries[self.amber_ID] = true
 								allowed_luxuries[self.lapis_ID] = true
@@ -8722,9 +8760,9 @@ function AssignStartingPlots:GetListOfAllowableLuxuriesAtCitySite(x, y, radius)
 								allowed_luxuries[self.spices_ID] = true
 								allowed_luxuries[self.silk_ID] = true
 								allowed_luxuries[self.sugar_ID] = true
-								allowed_luxuries[self.citrus_ID] = true
-								allowed_luxuries[self.truffles_ID] = true
-								allowed_luxuries[self.cocoa_ID] = true
+								--allowed_luxuries[self.citrus_ID] = true
+								--allowed_luxuries[self.truffles_ID] = true
+								--allowed_luxuries[self.cocoa_ID] = true
 								allowed_luxuries[self.fur_ID] = true
 								allowed_luxuries[self.dye_ID] = true
 								--
@@ -9226,8 +9264,8 @@ function AssignStartingPlots:GetIndicesForLuxuryType(resource_ID)
 		primary = 1;
 	elseif resource_ID == self.pearls_ID then
 		primary = 1;
-	elseif resource_ID == self.crab_ID then
-		primary = 1;
+	--elseif resource_ID == self.crab_ID then
+	--	primary = 1;
 	elseif resource_ID == self.coral_ID then
 		primary = 1;
 	-- Rock Luxuries
@@ -9237,12 +9275,12 @@ function AssignStartingPlots:GetIndicesForLuxuryType(resource_ID)
 		primary, secondary, tertiary, quaternary, quinary, senary = 27, 24, 36, 37, 5, 31;
 	elseif resource_ID == self.silver_ID then
 		primary, secondary, tertiary, quaternary, quinary, senary = 27, 24, 36, 37, 5, 31;
-	elseif resource_ID == self.copper_ID then
-		primary, secondary, tertiary, quaternary, quinary, senary = 27, 24, 36, 37, 5, 31;
+	--elseif resource_ID == self.copper_ID then
+	--	primary, secondary, tertiary, quaternary, quinary, senary = 27, 24, 36, 37, 5, 31;
 	elseif resource_ID == self.gems_ID then
 		primary, secondary, tertiary, quaternary, quinary, senary = 27, 24, 36, 37, 5, 31;
-	elseif resource_ID == self.salt_ID then
-		primary, secondary, tertiary, quaternary, quinary, senary = 27, 24, 36, 37, 5, 31;
+	--elseif resource_ID == self.salt_ID then
+	--	primary, secondary, tertiary, quaternary, quinary, senary = 27, 24, 36, 37, 5, 31;
 	elseif resource_ID == self.jade_ID then							
 		primary, secondary, tertiary, quaternary, quinary, senary = 27, 24, 36, 37, 5, 31;
 	elseif resource_ID == self.amber_ID then						
@@ -9250,16 +9288,16 @@ function AssignStartingPlots:GetIndicesForLuxuryType(resource_ID)
 	elseif resource_ID == self.lapis_ID then							
 		primary, secondary, tertiary, quaternary, quinary, senary = 27, 24, 36, 37, 5, 31;
 	-- Tree Luxuries
-	elseif resource_ID == self.cocoa_ID then						
-		primary, secondary, tertiary, quaternary, quinary, senary = 8, 15, 28, 37, 24, 2;
-	elseif resource_ID == self.citrus_ID then
-		primary, secondary, tertiary, quaternary, quinary, senary = 8, 15, 28, 37, 24, 2;
+	--elseif resource_ID == self.cocoa_ID then						
+	--	primary, secondary, tertiary, quaternary, quinary, senary = 8, 15, 28, 37, 24, 2;
+	--elseif resource_ID == self.citrus_ID then
+	--	primary, secondary, tertiary, quaternary, quinary, senary = 8, 15, 28, 37, 24, 2;
 	elseif resource_ID == self.spices_ID then
 		primary, secondary, tertiary, quaternary, quinary, senary = 8, 15, 28, 37, 24, 2;
 	elseif resource_ID == self.sugar_ID then
 		primary, secondary, tertiary, quaternary, quinary, senary = 8, 15, 28, 37, 24, 2;
-	elseif resource_ID == self.truffles_ID then
-		primary, secondary, tertiary, quaternary, quinary, senary = 15, 8, 28, 37, 24, 2;
+	--elseif resource_ID == self.truffles_ID then
+	--	primary, secondary, tertiary, quaternary, quinary, senary = 15, 8, 28, 37, 24, 2;
 	elseif resource_ID == self.silk_ID then
 		primary, secondary, tertiary, quaternary, quinary, senary = 15, 8, 28, 37, 24, 2;
 	elseif resource_ID == self.dye_ID then
@@ -10513,9 +10551,9 @@ function AssignStartingPlots:FixResourceGraphics()
 			if res_ID == self.marble_ID or 
 			   res_ID == self.gold_ID or 
 			   res_ID == self.silver_ID or 
-			   res_ID == self.copper_ID or 
+			   --res_ID == self.copper_ID or 
 			   res_ID == self.gems_ID or 
-			   res_ID == self.salt_ID or 
+			   --res_ID == self.salt_ID or 
 			   res_ID == self.lapis_ID or 
 			   res_ID == self.jade_ID or 
 			   res_ID == self.amber_ID then 
@@ -10528,11 +10566,11 @@ function AssignStartingPlots:FixResourceGraphics()
 				-- plot:SetPlotType(PlotTypes.PLOT_HILLS, false, true)		-- MOD.Barathor: Keep flat mined resources as well.
 				
 			-- Tree Resources
-			elseif res_ID == self.cocoa_ID or 
-			       res_ID == self.citrus_ID or 
+			elseif --res_ID == self.cocoa_ID or 
+			       --res_ID == self.citrus_ID or 
 				   res_ID == self.spices_ID or 
 				   res_ID == self.sugar_ID or 
-				   res_ID == self.truffles_ID or 
+				   --res_ID == self.truffles_ID or 
 				   res_ID == self.silk_ID or 
 				   res_ID == self.dye_ID or 
 				   res_ID == self.fur_ID or 
@@ -10679,12 +10717,12 @@ function AssignStartingPlots:PrintFinalResourceTotalsToLog()
 	print(self.wine_ID,     "Wine....: ", self.amounts_of_resources_placed[self.wine_ID + 1])
 	print(self.incense_ID,  "Incense.: ", self.amounts_of_resources_placed[self.incense_ID + 1])
 	print("- Expansion LUXURY Resources -");
-	print(self.copper_ID,   "Copper..: ", self.amounts_of_resources_placed[self.copper_ID + 1])
-	print(self.salt_ID,     "Salt....: ", self.amounts_of_resources_placed[self.salt_ID + 1])
-	print(self.crab_ID,     "Crab....: ", self.amounts_of_resources_placed[self.crab_ID + 1])
-	print(self.truffles_ID, "Truffles: ", self.amounts_of_resources_placed[self.truffles_ID + 1])
-	print(self.citrus_ID,   "Citrus..: ", self.amounts_of_resources_placed[self.citrus_ID + 1])
-	print(self.cocoa_ID,    "Cocoa...: ", self.amounts_of_resources_placed[self.cocoa_ID + 1])
+	--print(self.copper_ID,   "Copper..: ", self.amounts_of_resources_placed[self.copper_ID + 1])
+	--print(self.salt_ID,     "Salt....: ", self.amounts_of_resources_placed[self.salt_ID + 1])
+	--print(self.crab_ID,     "Crab....: ", self.amounts_of_resources_placed[self.crab_ID + 1])
+	--print(self.truffles_ID, "Truffles: ", self.amounts_of_resources_placed[self.truffles_ID + 1])
+	--print(self.citrus_ID,   "Citrus..: ", self.amounts_of_resources_placed[self.citrus_ID + 1])
+	--print(self.cocoa_ID,    "Cocoa...: ", self.amounts_of_resources_placed[self.cocoa_ID + 1])
 	-- MOD.Barathor: Start
 	print("- Mod LUXURY Resources -")
 	print(self.coffee_ID,   "Coffee..: ", self.amounts_of_resources_placed[self.coffee_ID + 1])
@@ -10894,7 +10932,7 @@ function AssignStartingPlots:PlaceStrategicAndBonusResources()
 	self:ProcessResourceList(27 * bonus_multiplier, 3, self.plains_flat_no_feature, resources_to_place)
 	
 	local resources_to_place = {
-	{self.bison_ID, 1, 100, 2, 3} };
+	{self.cowID --[[self.bison_ID - @pcrafter - 20-07-2021]], 1, 100, 2, 3} };
 	self:ProcessResourceList(60 * bonus_multiplier, 3, self.plains_flat_no_feature, resources_to_place)
 
 	local resources_to_place = {
@@ -10906,7 +10944,7 @@ function AssignStartingPlots:PlaceStrategicAndBonusResources()
 	self:ProcessResourceList(20 * bonus_multiplier, 3, self.dry_grass_flat_no_feature, resources_to_place)
 	
 	local resources_to_place = {
-	{self.bison_ID, 1, 100, 1, 1} };
+	{self.cowID --[[self.bison_ID - @pcrafter - 20-07-2021]], 1, 100, 1, 1} };
 	self:ProcessResourceList(50 * bonus_multiplier, 3, self.dry_grass_flat_no_feature, resources_to_place)
 
 	local resources_to_place = {

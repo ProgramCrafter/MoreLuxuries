@@ -237,7 +237,7 @@
 			<RandApp2>25</RandApp2>
 			<Player>67</Player>
 			<Flatlands>true</Flatlands>
-			<OnlyMinorCivs>true</OnlyMinorCivs>
+			<!-- <OnlyMinorCivs>true</OnlyMinorCivs> -->
 			<IconString>[ICON_RES_GLASS]</IconString>
 			<PortraitIndex>10</PortraitIndex>
 			<IconAtlas>NEWLUXURIES_RESOURCE_ATLAS</IconAtlas>
